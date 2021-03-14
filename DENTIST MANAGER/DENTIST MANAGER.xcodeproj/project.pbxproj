@@ -16,14 +16,17 @@
 		2E321E5B25DA8C04008A0E37 /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E321E5A25DA8C04008A0E37 /* LoginPage.swift */; };
 		2E321E6025DA8C05008A0E37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E321E5F25DA8C05008A0E37 /* Assets.xcassets */; };
 		2E321E6325DA8C05008A0E37 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E321E6125DA8C05008A0E37 /* LaunchScreen.storyboard */; };
-		2E321E6E25DA8D0A008A0E37 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2E321E6D25DA8D0A008A0E37 /* SnapKit */; };
+		2E321E6E25DA8D0A008A0E37 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 2E321E6D25DA8D0A008A0E37 /* SwiftPackageProductDependency */; };
 		2EC3FD2925FD030D002C5BF9 /* UIViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC3FD2825FD030D002C5BF9 /* UIViews.swift */; };
 		2EC3FD2C25FD0A3E002C5BF9 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC3FD2B25FD0A3E002C5BF9 /* TabBar.swift */; };
 		2EF6964F25FB5DB1007659EF /* TBFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF6964E25FB5DB1007659EF /* TBFileManager.swift */; };
 		2EF6965525FB8033007659EF /* DefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF6965425FB8033007659EF /* DefaultsManager.swift */; };
+		FA53DCF3AC24B401E4006F1B /* Pods_DENTIST_MANAGER.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C6BC5DE5D3EC794078E3C56 /* Pods_DENTIST_MANAGER.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C6BC5DE5D3EC794078E3C56 /* Pods_DENTIST_MANAGER.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DENTIST_MANAGER.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1090CAE795395E7244EEC090 /* Pods-DENTIST MANAGER.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DENTIST MANAGER.debug.xcconfig"; path = "Target Support Files/Pods-DENTIST MANAGER/Pods-DENTIST MANAGER.debug.xcconfig"; sourceTree = "<group>"; };
 		2E2CCE4B25F7702600470939 /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
 		2E2CCE4E25F7707D00470939 /* AppointmentScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentScreen.swift; sourceTree = "<group>"; };
 		2E2CCE5125F7709300470939 /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
@@ -39,6 +42,7 @@
 		2EC3FD2B25FD0A3E002C5BF9 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		2EF6964E25FB5DB1007659EF /* TBFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TBFileManager.swift; sourceTree = "<group>"; };
 		2EF6965425FB8033007659EF /* DefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsManager.swift; sourceTree = "<group>"; };
+		30A6C770176AB3706831B507 /* Pods-DENTIST MANAGER.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DENTIST MANAGER.release.xcconfig"; path = "Target Support Files/Pods-DENTIST MANAGER/Pods-DENTIST MANAGER.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,7 +50,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E321E6E25DA8D0A008A0E37 /* SnapKit in Frameworks */,
+				2E321E6E25DA8D0A008A0E37 /* BuildFile in Frameworks */,
+				FA53DCF3AC24B401E4006F1B /* Pods_DENTIST_MANAGER.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +80,8 @@
 			children = (
 				2E321E5525DA8C04008A0E37 /* DENTIST MANAGER */,
 				2E321E5425DA8C04008A0E37 /* Products */,
+				E44F42A8B24F9E8C8A807116 /* Pods */,
+				3E2B8AB4013D4237D3C5F1EF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -122,6 +129,24 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		3E2B8AB4013D4237D3C5F1EF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0C6BC5DE5D3EC794078E3C56 /* Pods_DENTIST_MANAGER.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E44F42A8B24F9E8C8A807116 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1090CAE795395E7244EEC090 /* Pods-DENTIST MANAGER.debug.xcconfig */,
+				30A6C770176AB3706831B507 /* Pods-DENTIST MANAGER.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -129,9 +154,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2E321E6725DA8C05008A0E37 /* Build configuration list for PBXNativeTarget "DENTIST MANAGER" */;
 			buildPhases = (
+				321B41795EBF29F331BFA544 /* [CP] Check Pods Manifest.lock */,
 				2E321E4F25DA8C04008A0E37 /* Sources */,
 				2E321E5025DA8C04008A0E37 /* Frameworks */,
 				2E321E5125DA8C04008A0E37 /* Resources */,
+				4547C79046F2F78F34C47889 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -139,7 +166,7 @@
 			);
 			name = "DENTIST MANAGER";
 			packageProductDependencies = (
-				2E321E6D25DA8D0A008A0E37 /* SnapKit */,
+				2E321E6D25DA8D0A008A0E37 /* SwiftPackageProductDependency */,
 			);
 			productName = "DENTIST MANAGER";
 			productReference = 2E321E5325DA8C04008A0E37 /* DENTIST MANAGER.app */;
@@ -169,7 +196,7 @@
 			);
 			mainGroup = 2E321E4A25DA8C04008A0E37;
 			packageReferences = (
-				2E321E6C25DA8D0A008A0E37 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				2E321E6C25DA8D0A008A0E37 /* RemoteSwiftPackageReference */,
 			);
 			productRefGroup = 2E321E5425DA8C04008A0E37 /* Products */;
 			projectDirPath = "";
@@ -191,6 +218,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		321B41795EBF29F331BFA544 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DENTIST MANAGER-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4547C79046F2F78F34C47889 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DENTIST MANAGER/Pods-DENTIST MANAGER-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DENTIST MANAGER/Pods-DENTIST MANAGER-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DENTIST MANAGER/Pods-DENTIST MANAGER-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2E321E4F25DA8C04008A0E37 /* Sources */ = {
@@ -343,6 +412,7 @@
 		};
 		2E321E6825DA8C05008A0E37 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1090CAE795395E7244EEC090 /* Pods-DENTIST MANAGER.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -363,6 +433,7 @@
 		};
 		2E321E6925DA8C05008A0E37 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 30A6C770176AB3706831B507 /* Pods-DENTIST MANAGER.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -405,7 +476,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		2E321E6C25DA8D0A008A0E37 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+		2E321E6C25DA8D0A008A0E37 /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
 			requirement = {
@@ -416,9 +487,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		2E321E6D25DA8D0A008A0E37 /* SnapKit */ = {
+		2E321E6D25DA8D0A008A0E37 /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 2E321E6C25DA8D0A008A0E37 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = 2E321E6C25DA8D0A008A0E37 /* RemoteSwiftPackageReference */;
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */

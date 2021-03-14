@@ -8,10 +8,13 @@
 import UIKit
 import SnapKit
 import MessageUI
+import skpsmtpmessage
 
-class AppointmentScreen: UIViewController {
+class AppointmentScreen: UIViewController, SKPSMTPMessageDelegate {
     
+    static let shared = AppointmentScreen()
     private var userKey: String = "userData"
+    
     // MARK: - UI Elements declaration
     private let dataPicker: UIDatePicker = {
         
@@ -62,9 +65,38 @@ class AppointmentScreen: UIViewController {
         let strDate = timeFormatter.string(from: dataPicker.date)
         print(strDate)
         
+        sendEmail(subject: "Appointment", body: "You tried to appointment on: \n \(strDate) \n wait a call back to confirmation")
+        
         let alert = UIAlertController(title: "Appointment", message: "You tried to appointment on: \n \(strDate) \n wait a call back to confirmation", preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
+        
+    
+    }
+    
+    func sendEmail(subject: String, body: String) {
+        let message = SKPSMTPMessage()
+        message.relayHost = "smtp.gmail.com"
+        message.login = "dentistapp777@gmail.com"
+        message.pass = "12Makar12"
+        message.requiresAuth = true
+        message.wantsSecure = true
+        message.relayPorts = [587]
+        message.fromEmail = "dentistapp777@gmail.com"
+        message.toEmail = "eri.makar12@gmail.com"
+        message.subject = subject
+        let messagePart = [kSKPSMTPPartContentTypeKey: "text/plain; charset=UTF-8", kSKPSMTPPartMessageKey: body]
+        message.parts = [messagePart]
+        message.delegate = self
+        message.send()
+    }
+
+    func messageSent(_ message: SKPSMTPMessage!) {
+        print("Successfully sent email!")
+    }
+
+    func messageFailed(_ message: SKPSMTPMessage!, error: Error!) {
+        print("Sending email failed!")
     }
     
     // MARK: - Constraints

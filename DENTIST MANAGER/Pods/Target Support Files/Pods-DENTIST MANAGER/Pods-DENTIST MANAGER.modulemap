@@ -1,0 +1,6 @@
+framework module Pods_DENTIST_MANAGER {
+  umbrella header "Pods-DENTIST MANAGER-umbrella.h"
+
+  export *
+  module * { export * }
+}
