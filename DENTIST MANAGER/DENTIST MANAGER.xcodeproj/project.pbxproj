@@ -122,9 +122,17 @@
 				2E2CCE5125F7709300470939 /* ProfileScreen.swift */,
 				2EC3FD2B25FD0A3E002C5BF9 /* TabBar.swift */,
 				2EB4827625FF475E00D1B51D /* ScrollView.swift */,
-				2EB4827925FF47B000D1B51D /* View+Ex.swift */,
+				2EB4827D25FF64EA00D1B51D /* Extension */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		2EB4827D25FF64EA00D1B51D /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				2EB4827925FF47B000D1B51D /* View+Ex.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		2EC3FD2725FD02EA002C5BF9 /* Views */ = {

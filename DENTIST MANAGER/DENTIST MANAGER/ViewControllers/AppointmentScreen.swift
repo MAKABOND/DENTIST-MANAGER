@@ -26,6 +26,7 @@ class AppointmentScreen: UIViewController, SKPSMTPMessageDelegate {
         let today = Calendar.current.date(from: components)!
         picker.minimumDate = today
 
+
         return picker
     }()
     

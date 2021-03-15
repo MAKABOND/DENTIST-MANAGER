@@ -97,10 +97,6 @@ class LoginPage: BasicScrollViewController, UIImagePickerControllerDelegate, UIN
         picker.dismiss(animated: true)
     }
     
-//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        self.view.endEditing(true)
-//    }
-    
     // MARK: - Constraints
     func setConstraintsLoginPage() {
         self.viewScrool.snp.makeConstraints { (make) in
@@ -108,11 +104,6 @@ class LoginPage: BasicScrollViewController, UIImagePickerControllerDelegate, UIN
             make.width.equalTo(self.mainScroll.snp.width)
             make.height.equalTo(self.mainScroll.snp.height).priority(750)
         }
-        
-//        UIViews.shared.setImage.snp.makeConstraints { (make) in
-//            make.left.right.equalToSuperview().inset(10)
-//            make.top.equalToSuperview().inset(10)
-//        }
         
         UIViews.shared.imageView.snp.makeConstraints { (make) in
             make.top.equalToSuperview().inset(50)
