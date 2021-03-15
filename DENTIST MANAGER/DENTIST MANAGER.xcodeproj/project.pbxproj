@@ -16,7 +16,7 @@
 		2E321E5B25DA8C04008A0E37 /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E321E5A25DA8C04008A0E37 /* LoginPage.swift */; };
 		2E321E6025DA8C05008A0E37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E321E5F25DA8C05008A0E37 /* Assets.xcassets */; };
 		2E321E6325DA8C05008A0E37 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E321E6125DA8C05008A0E37 /* LaunchScreen.storyboard */; };
-		2E321E6E25DA8D0A008A0E37 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 2E321E6D25DA8D0A008A0E37 /* SwiftPackageProductDependency */; };
+		2E321E6E25DA8D0A008A0E37 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2E321E6D25DA8D0A008A0E37 /* SnapKit */; };
 		2EC3FD2925FD030D002C5BF9 /* UIViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC3FD2825FD030D002C5BF9 /* UIViews.swift */; };
 		2EC3FD2C25FD0A3E002C5BF9 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC3FD2B25FD0A3E002C5BF9 /* TabBar.swift */; };
 		2EF6964F25FB5DB1007659EF /* TBFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF6964E25FB5DB1007659EF /* TBFileManager.swift */; };
@@ -50,7 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E321E6E25DA8D0A008A0E37 /* BuildFile in Frameworks */,
+				2E321E6E25DA8D0A008A0E37 /* SnapKit in Frameworks */,
 				FA53DCF3AC24B401E4006F1B /* Pods_DENTIST_MANAGER.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -143,7 +143,6 @@
 				1090CAE795395E7244EEC090 /* Pods-DENTIST MANAGER.debug.xcconfig */,
 				30A6C770176AB3706831B507 /* Pods-DENTIST MANAGER.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -166,7 +165,7 @@
 			);
 			name = "DENTIST MANAGER";
 			packageProductDependencies = (
-				2E321E6D25DA8D0A008A0E37 /* SwiftPackageProductDependency */,
+				2E321E6D25DA8D0A008A0E37 /* SnapKit */,
 			);
 			productName = "DENTIST MANAGER";
 			productReference = 2E321E5325DA8C04008A0E37 /* DENTIST MANAGER.app */;
@@ -196,7 +195,7 @@
 			);
 			mainGroup = 2E321E4A25DA8C04008A0E37;
 			packageReferences = (
-				2E321E6C25DA8D0A008A0E37 /* RemoteSwiftPackageReference */,
+				2E321E6C25DA8D0A008A0E37 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 2E321E5425DA8C04008A0E37 /* Products */;
 			projectDirPath = "";
@@ -476,7 +475,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		2E321E6C25DA8D0A008A0E37 /* RemoteSwiftPackageReference */ = {
+		2E321E6C25DA8D0A008A0E37 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
 			requirement = {
@@ -487,9 +486,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		2E321E6D25DA8D0A008A0E37 /* SwiftPackageProductDependency */ = {
+		2E321E6D25DA8D0A008A0E37 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 2E321E6C25DA8D0A008A0E37 /* RemoteSwiftPackageReference */;
+			package = 2E321E6C25DA8D0A008A0E37 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */

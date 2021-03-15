@@ -23,12 +23,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if person?.name == nil {
             navigationController.viewControllers = [LoginPage()]
                 window.rootViewController = navigationController
-                navigationController.isNavigationBarHidden = true
+                navigationController.isNavigationBarHidden = false
                 window.makeKeyAndVisible()
             } else {
                 navigationController.viewControllers = [TabBar()]
                     window.rootViewController = navigationController
-                    navigationController.isNavigationBarHidden = true
+                    navigationController.isNavigationBarHidden = false
                     window.makeKeyAndVisible()
             }
             

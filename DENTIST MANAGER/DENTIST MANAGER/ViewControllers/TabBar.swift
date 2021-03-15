@@ -11,14 +11,14 @@ class TabBar: UIViewController {
     
     static let shared = TabBar()
     
-   
-    
+    // MARK: - Life cicle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         startTabBar()
     }
     
+    // MARK: - Methods
     func startTabBar() {
         let tabBarVC = UITabBarController()
         let vc1 = UINavigationController(rootViewController: MainScreen())

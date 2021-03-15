@@ -10,45 +10,27 @@ import SnapKit
 
 class ProfileScreen: UIViewController {
     private var userKey: String = "userData"
-
     static let shared = ProfileScreen()
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
-        let person = TBFileManager.shared.unArchiveWithNSCoding(with: self.userKey)
-        
-        let nameText: UILabel = {
-            let name = UILabel()
-            name.text = person?.name
-            name.textAlignment = .center
-            return name
-        }()
-        let surnameText: UILabel = {
-            let surname = UILabel()
-            surname.text = person?.surname
-            surname.textAlignment = .center
-            return surname
-        }()
-        let phoneText: UILabel = {
-            let phone = UILabel()
-            phone.text = person?.phoneNumber
-            phone.textAlignment = .center
-            return phone
-        }()
-        
         super.viewDidLoad()
-        
+        title = "Profile"
+        let person = TBFileManager.shared.unArchiveWithNSCoding(with: self.userKey)
+        UIViews.shared.nameText.text = person?.name
+        UIViews.shared.surnameText.text = person?.surname
+        UIViews.shared.phoneText.text = person?.phoneNumber
+        UIViews.shared.imageView.image = person?.image
+
         setupNavigationBar()
         
         view.addSubview(UIViews.shared.imageView)
-        view.addSubview(UIViews.shared.setImage)
-        view.addSubview(nameText)
-        view.addSubview(surnameText)
-        view.addSubview(phoneText)
+        view.addSubview(UIViews.shared.nameText)
+        view.addSubview(UIViews.shared.surnameText)
+        view.addSubview(UIViews.shared.phoneText)
         
         view.backgroundColor = .white
         
-        title = "Profile"
         setConstraintsProfile()
     }
     
@@ -56,6 +38,10 @@ class ProfileScreen: UIViewController {
     // MARK: - Methods
     @objc func editButton() {
         present(LoginPage(), animated: true, completion: nil)
+        let person = TBFileManager.shared.unArchiveWithNSCoding(with: self.userKey)
+        UIViews.shared.nameField.text = person?.name
+        UIViews.shared.surNameField.text = person?.surname
+        UIViews.shared.phoneField.text = person?.phoneNumber
     }
     
     private func setupNavigationBar() {
@@ -75,7 +61,22 @@ class ProfileScreen: UIViewController {
             make.height.equalTo(300)
         }
         
+        UIViews.shared.nameText.snp.makeConstraints { (make) in
+            make.top.equalToSuperview().inset(460)
+            make.left.right.equalToSuperview().inset(20)
+            make.height.equalTo(50)
+        }
         
+        UIViews.shared.surnameText.snp.makeConstraints { (make) in
+            make.top.equalToSuperview().inset(550)
+            make.left.right.equalToSuperview().inset(20)
+            make.height.equalTo(50)
+        }
+        
+        UIViews.shared.phoneText.snp.makeConstraints { (make) in
+            make.top.equalToSuperview().inset(640)
+            make.left.right.equalToSuperview().inset(20)
+            make.height.equalTo(50)
+        }
     }
-    
 }

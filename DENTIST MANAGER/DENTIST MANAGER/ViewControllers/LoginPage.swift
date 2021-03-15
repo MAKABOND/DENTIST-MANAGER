@@ -9,37 +9,44 @@ import UIKit
 import SnapKit
 
 class LoginPage: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
     // MARK: - Variables
     private var userKey: String = "userData"
-  
-    private var model: TBProfile?
     static let shared = LoginPage()
+    var model: TBProfile?
     
-    // MARK: - UI Elements Declaration
- 
     // MARK: - Life Cicle
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "Enter info about"
         view.backgroundColor = .white
+        setupNavigationBar()
         
-        view.addSubview(UIViews.shared.imageView)
+        UIViews.shared.setImage.addTarget(self, action: #selector(choosePhoto), for: .touchUpInside)
         view.addSubview(UIViews.shared.setImage)
+        view.addSubview(UIViews.shared.imageView)
         view.addSubview(UIViews.shared.loginButton)
         view.addSubview(UIViews.shared.nameField)
         view.addSubview(UIViews.shared.surNameField)
         view.addSubview(UIViews.shared.phoneField)
         
         UIViews.shared.loginButton.addTarget(self,
-                              action: #selector(didTapButton),
-                              for: .touchUpInside)
-        UIViews.shared.setImage.addTarget(self, action: #selector(choosePhoto), for: .touchUpInside)
+                                             action: #selector(didTapButton),
+                                             for: .touchUpInside)
         
         setConstraintsLoginPage()
-        
     }
-
+    
     // MARK: - Methods
+    private func setupNavigationBar() {
+        let editButton = UIBarButtonItem(
+            barButtonSystemItem: .camera,
+            target: self,
+            action: #selector(self.choosePhoto))
+        self.navigationItem.rightBarButtonItems = [editButton].reversed()
+    }
+    
     @objc func didTapButton() {
         if UIViews.shared.nameField.hasText == false ||
             UIViews.shared.surNameField.hasText == false ||
@@ -48,19 +55,11 @@ class LoginPage: UIViewController, UIImagePickerControllerDelegate, UINavigation
             alert.addAction(UIAlertAction(title: "ok", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         } else {
-            self.model = TBProfile(name: UIViews.shared.nameField.description,
-                                   surname: UIViews.shared.surNameField.description,
-                                   phoneNumber: UIViews.shared.phoneField.description)
-            
-            Swift.debugPrint(TBFileManager.shared.archiveWithNSCoding(with : self.userKey, model: self.model))
-            
-              let person = TBFileManager.shared.unArchiveWithNSCoding(with: self.userKey)
-            Swift.debugPrint("---------------------------")
-            Swift.debugPrint("name -> \((person?.name.description)!)")
-            Swift.debugPrint("surname -> \((person?.surname.description)!)")
-            Swift.debugPrint("phone number -> \((person?.phoneNumber.description)!)")
-            Swift.debugPrint("---------------------------")
-            
+            self.model = TBProfile(name: UIViews.shared.nameField.text!,
+                                   surname: UIViews.shared.surNameField.text!,
+                                   phoneNumber: UIViews.shared.phoneField.text!,
+                                   image: UIViews.shared.imageView.image!)
+            TBFileManager.shared.archiveWithNSCoding(with : self.userKey, model: self.model)
             startTabBar()
         }
     }
@@ -97,6 +96,7 @@ class LoginPage: UIViewController, UIImagePickerControllerDelegate, UINavigation
     
     // MARK: - Constraints
     func setConstraintsLoginPage() {
+        
         UIViews.shared.setImage.snp.makeConstraints { (make) in
             make.left.right.equalToSuperview().inset(10)
             make.top.equalToSuperview().inset(50)
@@ -109,7 +109,7 @@ class LoginPage: UIViewController, UIImagePickerControllerDelegate, UINavigation
         }
         
         UIViews.shared.loginButton.snp.makeConstraints { (make) in
-            make.bottom.equalToSuperview().inset(100)
+            make.bottom.equalToSuperview().inset(40)
             make.left.right.equalToSuperview().inset(50)
         }
         
@@ -138,24 +138,23 @@ class LoginPage: UIViewController, UIImagePickerControllerDelegate, UINavigation
         let vc1 = UINavigationController(rootViewController: MainScreen())
         let vc2 = UINavigationController(rootViewController: AppointmentScreen())
         let vc3 = UINavigationController(rootViewController: ProfileScreen())
-
+        
         vc1.title = "Home"
         vc2.title = "Appointment"
         vc3.title = "Profile"
-
+        
         tabBarVC.setViewControllers([vc1, vc2, vc3], animated: false)
-
+        
         guard let items = tabBarVC.tabBar.items else { return }
-
+        
         let images = ["house","magnifyingglass.circle","person.circle"]
-
+        
         for x in 0..<items.count {
             items[x].image = UIImage(systemName: images[x])
         }
-
+        
         tabBarVC.modalPresentationStyle = .fullScreen
         present(tabBarVC, animated: true)
     }
-    
 }
 

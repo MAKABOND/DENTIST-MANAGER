@@ -29,15 +29,6 @@ class AppointmentScreen: UIViewController, SKPSMTPMessageDelegate {
         return picker
     }()
     
-    private let dataPickerButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Try to appointment", for: .normal)
-        button.backgroundColor = .lightGray
-        button.setTitleColor(.black, for: .normal)
-        
-        return button
-    }()
-    
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,14 +37,11 @@ class AppointmentScreen: UIViewController, SKPSMTPMessageDelegate {
         title = "Appointment"
         
         view.addSubview(dataPicker)
-        view.addSubview(dataPickerButton)
+        view.addSubview(UIViews.shared.dataPickerButton)
+        view.addSubview(UIViews.shared.reasonField)
         
-        dataPickerButton.addTarget(self, action: #selector(pickedDate), for: .touchUpInside)
+        UIViews.shared.dataPickerButton.addTarget(self, action: #selector(pickedDate), for: .touchUpInside)
         dataPickerConstraints()
-        
-        func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-            controller.dismiss(animated:true)
-        }
     }
     
     // MARK: - Methods
@@ -64,14 +52,14 @@ class AppointmentScreen: UIViewController, SKPSMTPMessageDelegate {
         
         let strDate = timeFormatter.string(from: dataPicker.date)
         print(strDate)
+         
         
-        sendEmail(subject: "Appointment", body: "You tried to appointment on: \n \(strDate) \n wait a call back to confirmation")
+        let person = TBFileManager.shared.unArchiveWithNSCoding(with: self.userKey)
+        sendEmail(subject: "Appointment", body: "\((person?.name)!) \((person?.surname)!) \n \((person?.phoneNumber)!) \n want's appointment on: \n\(strDate) \nreason: \((UIViews.shared.reasonField.text)! )")
         
         let alert = UIAlertController(title: "Appointment", message: "You tried to appointment on: \n \(strDate) \n wait a call back to confirmation", preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
-        
-    
     }
     
     func sendEmail(subject: String, body: String) {
@@ -97,18 +85,28 @@ class AppointmentScreen: UIViewController, SKPSMTPMessageDelegate {
 
     func messageFailed(_ message: SKPSMTPMessage!, error: Error!) {
         print("Sending email failed!")
+        
+        let alert = UIAlertController(title: "Error", message: "Mail failed", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     // MARK: - Constraints
     func dataPickerConstraints() {
         self.dataPicker.snp.makeConstraints { (make) in
-            make.top.left.right.equalToSuperview().inset(10)
+            make.bottom.equalToSuperview().inset(200)
         }
         
-        self.dataPickerButton.snp.makeConstraints { (make) in
+        UIViews.shared.dataPickerButton.snp.makeConstraints { (make) in
             make.left.right.equalToSuperview().inset(10)
             make.bottom.equalToSuperview().inset(100)
+            make.height.equalTo(50)
+        }
+        
+        UIViews.shared.reasonField.snp.makeConstraints { (make) in
+            make.top.equalToSuperview().inset(120)
+            make.left.right.equalToSuperview().inset(10)
+            make.height.equalTo(140)
         }
     }
-    
 }
