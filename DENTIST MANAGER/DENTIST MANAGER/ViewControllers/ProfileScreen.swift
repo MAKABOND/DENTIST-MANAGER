@@ -16,6 +16,8 @@ class ProfileScreen: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Profile"
+        
+        
         let person = TBFileManager.shared.unArchiveWithNSCoding(with: self.userKey)
         UIViews.shared.nameText.text = person?.name
         UIViews.shared.surnameText.text = person?.surname
@@ -42,6 +44,11 @@ class ProfileScreen: UIViewController {
         UIViews.shared.nameField.text = person?.name
         UIViews.shared.surNameField.text = person?.surname
         UIViews.shared.phoneField.text = person?.phoneNumber
+        
+        UIViews.shared.setImage.snp.makeConstraints { (make) in
+            make.left.right.equalToSuperview().inset(10)
+            make.top.equalToSuperview().inset(10)
+        }
     }
     
     private func setupNavigationBar() {

@@ -8,12 +8,18 @@
 import UIKit
 import SnapKit
 
-class LoginPage: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class LoginPage: BasicScrollViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // MARK: - Variables
     private var userKey: String = "userData"
-    static let shared = LoginPage()
+    static let shared1 = LoginPage()
     var model: TBProfile?
+    let viewScrool: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        
+        return view
+    }()
     
     // MARK: - Life Cicle
     override func viewDidLoad() {
@@ -24,12 +30,13 @@ class LoginPage: UIViewController, UIImagePickerControllerDelegate, UINavigation
         setupNavigationBar()
         
         UIViews.shared.setImage.addTarget(self, action: #selector(choosePhoto), for: .touchUpInside)
-        view.addSubview(UIViews.shared.setImage)
-        view.addSubview(UIViews.shared.imageView)
-        view.addSubview(UIViews.shared.loginButton)
-        view.addSubview(UIViews.shared.nameField)
-        view.addSubview(UIViews.shared.surNameField)
-        view.addSubview(UIViews.shared.phoneField)
+        self.mainScroll.addSubview(viewScrool)
+        self.viewScrool.addSubview(UIViews.shared.setImage)
+        self.viewScrool.addSubview(UIViews.shared.imageView)
+        self.viewScrool.addSubview(UIViews.shared.loginButton)
+        self.viewScrool.addSubview(UIViews.shared.nameField)
+        self.viewScrool.addSubview(UIViews.shared.surNameField)
+        self.viewScrool.addSubview(UIViews.shared.phoneField)
         
         UIViews.shared.loginButton.addTarget(self,
                                              action: #selector(didTapButton),
@@ -90,20 +97,25 @@ class LoginPage: UIViewController, UIImagePickerControllerDelegate, UINavigation
         picker.dismiss(animated: true)
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
-    }
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        self.view.endEditing(true)
+//    }
     
     // MARK: - Constraints
     func setConstraintsLoginPage() {
-        
-        UIViews.shared.setImage.snp.makeConstraints { (make) in
-            make.left.right.equalToSuperview().inset(10)
-            make.top.equalToSuperview().inset(50)
+        self.viewScrool.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+            make.width.equalTo(self.mainScroll.snp.width)
+            make.height.equalTo(self.mainScroll.snp.height).priority(750)
         }
         
+//        UIViews.shared.setImage.snp.makeConstraints { (make) in
+//            make.left.right.equalToSuperview().inset(10)
+//            make.top.equalToSuperview().inset(10)
+//        }
+        
         UIViews.shared.imageView.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().inset(120)
+            make.top.equalToSuperview().inset(50)
             make.left.right.equalToSuperview().inset(50)
             make.height.equalTo(300)
         }
@@ -114,19 +126,19 @@ class LoginPage: UIViewController, UIImagePickerControllerDelegate, UINavigation
         }
         
         UIViews.shared.nameField.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().inset(460)
+            make.top.equalToSuperview().inset(400)
             make.left.right.equalToSuperview().inset(20)
             make.height.equalTo(50)
         }
         
         UIViews.shared.surNameField.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().inset(550)
+            make.top.equalToSuperview().inset(490)
             make.left.right.equalToSuperview().inset(20)
             make.height.equalTo(50)
         }
         
         UIViews.shared.phoneField.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().inset(640)
+            make.top.equalToSuperview().inset(580)
             make.left.right.equalToSuperview().inset(20)
             make.height.equalTo(50)
         }

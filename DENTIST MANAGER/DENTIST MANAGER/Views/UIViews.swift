@@ -128,7 +128,7 @@ class UIViews {
     // MARK: - UI Elements Profile Screen
     let nameText: UILabel = {
         let name = UILabel()
-        name.text = LoginPage.shared.model?.name
+        name.text = LoginPage.shared1.model?.name
         name.layer.cornerRadius = 25
         name.layer.borderWidth = 1
         name.textAlignment = .center
@@ -138,7 +138,7 @@ class UIViews {
     
     let surnameText: UILabel = {
         let surname = UILabel()
-        surname.text = LoginPage.shared.model?.surname
+        surname.text = LoginPage.shared1.model?.surname
         surname.layer.cornerRadius = 25
         surname.layer.borderWidth = 1
         surname.textAlignment = .center
@@ -148,7 +148,7 @@ class UIViews {
     
     let phoneText: UILabel = {
         let phone = UILabel()
-        phone.text = LoginPage.shared.model?.phoneNumber
+        phone.text = LoginPage.shared1.model?.phoneNumber
         phone.layer.cornerRadius = 25
         phone.layer.borderWidth = 1
         phone.textAlignment = .center

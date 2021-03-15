@@ -44,6 +44,10 @@ class AppointmentScreen: UIViewController, SKPSMTPMessageDelegate {
         dataPickerConstraints()
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     // MARK: - Methods
     @objc func pickedDate(sender: UIDatePicker) {
         let timeFormatter = DateFormatter()
