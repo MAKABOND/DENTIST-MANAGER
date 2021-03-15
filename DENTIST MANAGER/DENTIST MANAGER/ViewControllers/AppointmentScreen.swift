@@ -7,7 +7,6 @@
 
 import UIKit
 import SnapKit
-import MessageUI
 import skpsmtpmessage
 
 class AppointmentScreen: UIViewController, SKPSMTPMessageDelegate {
@@ -17,7 +16,6 @@ class AppointmentScreen: UIViewController, SKPSMTPMessageDelegate {
     
     // MARK: - UI Elements declaration
     private let dataPicker: UIDatePicker = {
-        
         let picker = UIDatePicker()
         picker.preferredDatePickerStyle = .inline
         picker.minuteInterval = 15
@@ -25,8 +23,7 @@ class AppointmentScreen: UIViewController, SKPSMTPMessageDelegate {
         let components = Calendar.current.dateComponents([.day, .month, .year], from: Date())
         let today = Calendar.current.date(from: components)!
         picker.minimumDate = today
-
-
+        
         return picker
     }()
     
@@ -57,7 +54,6 @@ class AppointmentScreen: UIViewController, SKPSMTPMessageDelegate {
         
         let strDate = timeFormatter.string(from: dataPicker.date)
         print(strDate)
-         
         
         let person = TBFileManager.shared.unArchiveWithNSCoding(with: self.userKey)
         sendEmail(subject: "Appointment", body: "\((person?.name)!) \((person?.surname)!) \n \((person?.phoneNumber)!) \n want's appointment on: \n\(strDate) \nreason: \((UIViews.shared.reasonField.text)! )")
@@ -83,11 +79,11 @@ class AppointmentScreen: UIViewController, SKPSMTPMessageDelegate {
         message.delegate = self
         message.send()
     }
-
+    
     func messageSent(_ message: SKPSMTPMessage!) {
         print("Successfully sent email!")
     }
-
+    
     func messageFailed(_ message: SKPSMTPMessage!, error: Error!) {
         print("Sending email failed!")
         

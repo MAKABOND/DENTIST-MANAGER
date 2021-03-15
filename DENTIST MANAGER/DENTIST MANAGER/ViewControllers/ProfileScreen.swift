@@ -17,7 +17,6 @@ class ProfileScreen: UIViewController {
         super.viewDidLoad()
         title = "Profile"
         
-        
         let person = TBFileManager.shared.unArchiveWithNSCoding(with: self.userKey)
         UIViews.shared.nameText.text = person?.name
         UIViews.shared.surnameText.text = person?.surname
@@ -30,12 +29,10 @@ class ProfileScreen: UIViewController {
         view.addSubview(UIViews.shared.nameText)
         view.addSubview(UIViews.shared.surnameText)
         view.addSubview(UIViews.shared.phoneText)
-        
         view.backgroundColor = .white
         
         setConstraintsProfile()
     }
-    
     
     // MARK: - Methods
     @objc func editButton() {

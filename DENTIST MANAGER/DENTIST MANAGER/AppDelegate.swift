@@ -9,10 +9,10 @@ import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
     private var userKey: String = "userData"
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         
@@ -21,22 +21,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             let person = TBFileManager.shared.unArchiveWithNSCoding(with: self.userKey)
             if person?.name == nil {
-            navigationController.viewControllers = [LoginPage()]
+                navigationController.viewControllers = [LoginPage()]
                 window.rootViewController = navigationController
                 navigationController.isNavigationBarHidden = false
                 window.makeKeyAndVisible()
             } else {
                 navigationController.viewControllers = [TabBar()]
-                    window.rootViewController = navigationController
-                    navigationController.isNavigationBarHidden = false
-                    window.makeKeyAndVisible()
+                window.rootViewController = navigationController
+                navigationController.isNavigationBarHidden = false
+                window.makeKeyAndVisible()
             }
-            
         }
         return true
     }
-    
-    
-
 }
 

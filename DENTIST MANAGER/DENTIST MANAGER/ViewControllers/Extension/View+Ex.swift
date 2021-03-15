@@ -14,16 +14,16 @@ extension UIViewController {
             nextField.becomeFirstResponder()
         } else {
             textField.resignFirstResponder()
-    }
+        }
         return true
-}
-
+    }
+    
     func keyboardHideWhenTappedArround() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
         tapGesture.cancelsTouchesInView = true
         self.view.addGestureRecognizer(tapGesture)
     }
-
+    
     @objc func dismissKeyboard() {
         self.view.endEditing(true)
     }

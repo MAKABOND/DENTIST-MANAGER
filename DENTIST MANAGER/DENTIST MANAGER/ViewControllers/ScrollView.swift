@@ -16,12 +16,10 @@ class BasicScrollViewController: UIViewController {
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.keyboardHideWhenTappedArround()
-        
         self.view.addSubview(self.mainScroll)
-
         self.constraints()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,6 +36,7 @@ class BasicScrollViewController: UIViewController {
 
         self.mainScroll.contentInset.bottom = keyboardFrame.size.height + 10
     }
+    
     @objc private func keyboardWillHide() {
         self.mainScroll.contentInset.bottom = .zero
     }

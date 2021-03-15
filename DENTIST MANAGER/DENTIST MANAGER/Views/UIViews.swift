@@ -92,8 +92,25 @@ class UIViews {
     var homeImageView: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(named: "homaImage")
-        // image.layer.cornerRadius = 155
-        // image.layer.borderWidth = 1
+        image.contentMode = .scaleAspectFit
+        image.clipsToBounds = true
+        
+        return image
+    }()
+    
+    var lineImageView: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: "line")
+        image.contentMode = .scaleAspectFit
+        image.clipsToBounds = true
+        
+        return image
+    }()
+    
+    var lebedevImageView: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: "lebedev")
+        image.layer.cornerRadius = 40
         image.contentMode = .scaleAspectFit
         image.clipsToBounds = true
         
@@ -125,6 +142,7 @@ class UIViews {
         
         return button
     }()
+    
     // MARK: - UI Elements Profile Screen
     let nameText: UILabel = {
         let name = UILabel()

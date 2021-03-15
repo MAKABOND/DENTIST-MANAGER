@@ -38,6 +38,7 @@ class TBProfile: NSObject, NSCoding {
         coder.encode(self.phoneNumber, forKey: PropertyKey.phoneNumber)
         coder.encode(self.image, forKey: PropertyKey.image)
     }
+    
     required init(coder: NSCoder) {
         self.name = coder.decodeObject(forKey: PropertyKey.name) as! String
         self.surname = coder.decodeObject(forKey: PropertyKey.surname) as! String
